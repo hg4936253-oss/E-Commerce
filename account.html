@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopZone – My Account</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand"><span class="logo-icon">⚡</span>ShopZone</div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="account.html" class="active">Account</a>
+    </div>
+    <div class="nav-actions">
+      <a href="cart.html" class="cart-btn">🛒 <span class="cart-count" id="cart-count">0</span></a>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="account-page">
+    <!-- Sidebar Tabs -->
+    <div class="account-sidebar">
+      <div class="account-avatar-section">
+        <div class="big-avatar" id="acc-avatar">👤</div>
+        <h3 id="acc-name">User</h3>
+        <p id="acc-email-display" class="muted">user@email.com</p>
+      </div>
+      <nav class="account-nav">
+        <button class="acc-tab active" onclick="showTab('profile', this)">👤 My Profile</button>
+        <button class="acc-tab" onclick="showTab('orders', this)">📦 My Orders</button>
+        <button class="acc-tab" onclick="showTab('wishlist', this)">❤️ Wishlist</button>
+        <button class="acc-tab" onclick="showTab('address', this)">📍 Addresses</button>
+        <button class="acc-tab" onclick="showTab('settings', this)">⚙️ Settings</button>
+      </nav>
+      <button class="btn-logout full-width mt16" onclick="logout()">🚪 Logout</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="account-content">
+
+      <!-- Profile Tab -->
+      <div id="tab-profile" class="tab-panel active">
+        <h2>My Profile</h2>
+        <div class="profile-form">
+          <div class="form-row-2">
+            <div class="form-group"><label>First Name</label><input type="text" id="prof-fname" placeholder="First Name"/></div>
+            <div class="form-group"><label>Last Name</label><input type="text" id="prof-lname" placeholder="Last Name"/></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" id="prof-email" placeholder="Email"/></div>
+          <div class="form-group"><label>Phone</label><input type="tel" id="prof-phone" placeholder="+91 9XXXXXXXXX"/></div>
+          <div class="form-group"><label>Date of Birth</label><input type="date" id="prof-dob"/></div>
+          <div class="form-group"><label>Gender</label>
+            <select id="prof-gender">
+              <option>Male</option><option>Female</option><option>Other</option><option>Prefer not to say</option>
+            </select>
+          </div>
+          <button class="btn-primary" onclick="saveProfile()">Save Changes</button>
+          <div id="profile-success" class="form-success" style="display:none;">✅ Profile updated!</div>
+        </div>
+      </div>
+
+      <!-- Orders Tab -->
+      <div id="tab-orders" class="tab-panel">
+        <h2>My Orders</h2>
+        <div id="orders-list" class="orders-list"></div>
+      </div>
+
+      <!-- Wishlist Tab -->
+      <div id="tab-wishlist" class="tab-panel">
+        <h2>My Wishlist</h2>
+        <div id="wishlist-grid" class="products-grid"></div>
+        <p id="empty-wishlist" class="empty-msg" style="display:none;">💔 Your wishlist is empty. <a href="products.html">Add some products!</a></p>
+      </div>
+
+      <!-- Address Tab -->
+      <div id="tab-address" class="tab-panel">
+        <h2>My Addresses</h2>
+        <div class="address-card">
+          <div class="address-badge">🏠 Home</div>
+          <p id="saved-address">No address saved yet.</p>
+          <button class="btn-outline" onclick="editAddress()">Edit Address</button>
+        </div>
+        <div id="address-form" style="display:none;" class="profile-form">
+          <div class="form-group"><label>Street / House No.</label><input type="text" id="addr-street" placeholder="Street address"/></div>
+          <div class="form-row-2">
+            <div class="form-group"><label>City</label><input type="text" id="addr-city" placeholder="City"/></div>
+            <div class="form-group"><label>State</label><input type="text" id="addr-state" placeholder="State"/></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>PIN Code</label><input type="text" id="addr-pin" placeholder="PIN Code"/></div>
+            <div class="form-group"><label>Country</label><input type="text" id="addr-country" value="India"/></div>
+          </div>
+          <button class="btn-primary" onclick="saveAddress()">Save Address</button>
+        </div>
+      </div>
+
+      <!-- Settings Tab -->
+      <div id="tab-settings" class="tab-panel">
+        <h2>Settings</h2>
+        <div class="settings-list">
+          <div class="setting-item">
+            <div><strong>Email Notifications</strong><p class="muted">Get updates on orders and offers</p></div>
+            <label class="toggle"><input type="checkbox" checked/><span class="slider"></span></label>
+          </div>
+          <div class="setting-item">
+            <div><strong>SMS Alerts</strong><p class="muted">Delivery and order status SMS</p></div>
+            <label class="toggle"><input type="checkbox"/><span class="slider"></span></label>
+          </div>
+          <div class="setting-item">
+            <div><strong>Dark Mode</strong><p class="muted">Switch to dark theme</p></div>
+            <label class="toggle"><input type="checkbox" id="dark-toggle" onchange="toggleDark()"/><span class="slider"></span></label>
+          </div>
+          <div class="setting-item">
+            <div><strong>Two-Factor Auth</strong><p class="muted">Extra security for your account</p></div>
+            <label class="toggle"><input type="checkbox"/><span class="slider"></span></label>
+          </div>
+        </div>
+        <div class="danger-zone">
+          <h3>⚠️ Danger Zone</h3>
+          <button class="btn-danger" onclick="deleteAccount()">Delete My Account</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-brand"><span class="logo-icon">⚡</span>ShopZone</div>
+    <p>© 2026 ShopZone. Developed by Shivalaya Software Solutionsx</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

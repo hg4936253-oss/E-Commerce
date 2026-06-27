@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopZone – Home</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-brand"><span class="logo-icon">⚡</span>ShopZone</div>
+    <div class="nav-links">
+      <a href="home.html" class="active">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="account.html">Account</a>
+    </div>
+    <div class="nav-actions">
+      <div class="search-bar">
+        <input type="text" id="nav-search" placeholder="Search products..." oninput="liveSearch()"/>
+        <span>🔍</span>
+      </div>
+      <a href="cart.html" class="cart-btn">🛒 <span class="cart-count" id="cart-count">0</span></a>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">New Season Arrivals 🔥</span>
+      <h1>Shop the <em>Future</em><br/>of Fashion</h1>
+      <p>Curated collections. Unbeatable prices. Delivered fast.</p>
+      <div class="hero-btns">
+        <a href="products.html" class="btn-primary">Shop Now →</a>
+        <a href="about.html" class="btn-outline">Our Story</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card floating">
+        <div class="product-emoji">👟</div>
+        <p>Nike Air Max</p>
+        <strong>₹4,999</strong>
+      </div>
+      <div class="hero-card floating delay1">
+        <div class="product-emoji">👜</div>
+        <p>Leather Bag</p>
+        <strong>₹2,499</strong>
+      </div>
+      <div class="hero-card floating delay2">
+        <div class="product-emoji">⌚</div>
+        <p>Smart Watch</p>
+        <strong>₹8,999</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section categories-section">
+    <div class="section-header"><h2>Shop by <em>Category</em></h2></div>
+    <div class="categories-grid">
+      <div class="cat-card" onclick="filterCat('Electronics')">📱<span>Electronics</span></div>
+      <div class="cat-card" onclick="filterCat('Fashion')">👗<span>Fashion</span></div>
+      <div class="cat-card" onclick="filterCat('Footwear')">👟<span>Footwear</span></div>
+      <div class="cat-card" onclick="filterCat('Home')">🏠<span>Home & Living</span></div>
+      <div class="cat-card" onclick="filterCat('Beauty')">💄<span>Beauty</span></div>
+      <div class="cat-card" onclick="filterCat('Sports')">⚽<span>Sports</span></div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Featured <em>Products</em></h2>
+      <a href="products.html" class="see-all">See All →</a>
+    </div>
+    <div class="products-grid" id="featured-grid"></div>
+  </section>
+
+  <!-- BANNER -->
+  <section class="promo-banner">
+    <div class="promo-content">
+      <h2>🎉 Big Sale! Up to <span>70% OFF</span></h2>
+      <p>Limited time offer. Don't miss out!</p>
+      <a href="products.html" class="btn-primary">Grab Deals</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand"><span class="logo-icon">⚡</span>ShopZone</div>
+    <p>© 2026 ShopZone. Developed by Shivalaya Software Solutions</p>
+    <div class="footer-links">
+      <a href="about.html">About</a> · <a href="products.html">Products</a> · <a href="cart.html">Cart</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopZone – About Us</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand"><span class="logo-icon">⚡</span>ShopZone</div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html" class="active">About</a>
+      <a href="account.html">Account</a>
+    </div>
+    <div class="nav-actions">
+      <a href="cart.html" class="cart-btn">🛒 <span class="cart-count" id="cart-count">0</span></a>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <span class="hero-tag">Est. 2026 🇮🇳</span>
+      <h1>We're <em>ShopZone</em></h1>
+      <p>India's fastest growing online shopping destination. Built on trust, powered by passion.</p>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section about-story">
+    <div class="story-text">
+      <h2>Our <em>Story</em></h2>
+      <p>ShopZone was born in 2020 in a small room in Bangalore. We started with just 50 products and a dream — to make quality products accessible to every Indian household.</p>
+      <p>Today, we serve over 2 million customers across 28 states, with 50,000+ products from trusted brands and local sellers.</p>
+      <p>From Gwalior to Guwahati, from Mumbai to Munger — ShopZone is your local shop, gone global.</p>
+    </div>
+    <div class="story-visual">
+      <div class="story-number">2020</div>
+      <div class="story-number-label">Founded</div>
+      <div class="timeline">
+        <div class="timeline-item"><span>2020</span><p>Founded with 50 products</p></div>
+        <div class="timeline-item"><span>2021</span><p>100K customers milestone</p></div>
+        <div class="timeline-item"><span>2022</span><p>Launched in 28 states</p></div>
+        <div class="timeline-item"><span>2023</span><p>50K+ products listed</p></div>
+        <div class="timeline-item active"><span>2024</span><p>2M+ happy customers</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section values-section">
+    <h2>What We <em>Stand For</em></h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h3>Trust</h3>
+        <p>100% authentic products with buyer protection on every order.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <h3>Speed</h3>
+        <p>Same-day delivery in major cities. 2-day delivery across India.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💰</div>
+        <h3>Value</h3>
+        <p>Best prices guaranteed. If you find it cheaper, we'll match it.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌱</div>
+        <h3>Sustainability</h3>
+        <p>Eco-friendly packaging on 80% of orders. We plant a tree per order.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section team-section">
+    <h2>Meet the <em>Team</em></h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">🧑‍💼</div>
+        <h3>Arjun Sharma</h3>
+        <p>Founder & CEO</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">👩‍💻</div>
+        <h3>Priya Mehta</h3>
+        <p>CTO</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">🧑‍🎨</div>
+        <h3>Rohan Gupta</h3>
+        <p>Head of Design</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">👩‍📦</div>
+        <h3>Sneha Patel</h3>
+        <p>Operations Lead</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section">
+    <h2>Get In <em>Touch</em></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item"><span>📧</span><p>support@shopzone.in</p></div>
+        <div class="contact-item"><span>📞</span><p>1800-SHOPZONE (Toll Free)</p></div>
+        <div class="contact-item"><span>📍</span><p>Sandalpur Madhya Pradesh,~ India</p></div>
+        <div class="contact-item"><span>⏰</span><p>Mon–Sat, 9 AM – 9 PM</p></div>
+      </div>
+      <form class="contact-form" onsubmit="submitContact(event)">
+        <div class="form-group"><input type="text" placeholder="Your Name" required/></div>
+        <div class="form-group"><input type="email" placeholder="Your Email" required/></div>
+        <div class="form-group"><textarea placeholder="Your Message" rows="4" required></textarea></div>
+        <button type="submit" class="btn-primary">Send Message ✉️</button>
+        <div id="contact-success" style="display:none;" class="form-success">✅ Message sent! We'll reply soon.</div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-brand"><span class="logo-icon">⚡</span>ShopZone</div>
+    <p>© 2026 ShopZone. Developed by Shivalaya Software Solutions</p>
+    <div class="footer-links">
+      <a href="about.html">About</a> · <a href="products.html">Products</a> · <a href="cart.html">Cart</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

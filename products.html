@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopZone – All Products</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand"><span class="logo-icon">⚡</span>ShopZone</div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="about.html">About</a>
+      <a href="account.html">Account</a>
+    </div>
+    <div class="nav-actions">
+      <div class="search-bar">
+        <input type="text" id="nav-search" placeholder="Search products..." oninput="liveSearch()"/>
+        <span>🔍</span>
+      </div>
+      <a href="cart.html" class="cart-btn">🛒 <span class="cart-count" id="cart-count">0</span></a>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="products-page">
+    <div class="products-sidebar">
+      <h3>Filter</h3>
+
+      <div class="filter-group">
+        <label class="filter-title">Category</label>
+        <div class="filter-options">
+          <label><input type="checkbox" class="cat-filter" value="All" checked onchange="applyFilters()"/> All</label>
+          <label><input type="checkbox" class="cat-filter" value="Electronics" onchange="applyFilters()"/> Electronics</label>
+          <label><input type="checkbox" class="cat-filter" value="Fashion" onchange="applyFilters()"/> Fashion</label>
+          <label><input type="checkbox" class="cat-filter" value="Footwear" onchange="applyFilters()"/> Footwear</label>
+          <label><input type="checkbox" class="cat-filter" value="Home" onchange="applyFilters()"/> Home & Living</label>
+          <label><input type="checkbox" class="cat-filter" value="Beauty" onchange="applyFilters()"/> Beauty</label>
+          <label><input type="checkbox" class="cat-filter" value="Sports" onchange="applyFilters()"/> Sports</label>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-title">Price Range</label>
+        <input type="range" id="price-range" min="0" max="50000" value="50000" oninput="applyFilters(); document.getElementById('price-val').textContent='₹'+this.value"/>
+        <span id="price-val">₹50000</span>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-title">Sort By</label>
+        <select id="sort-select" onchange="applyFilters()">
+          <option value="default">Default</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+        </select>
+      </div>
+
+      <button class="btn-outline full-width" onclick="resetFilters()">Reset Filters</button>
+    </div>
+
+    <div class="products-main">
+      <div class="products-top-bar">
+        <h2>All Products</h2>
+        <span id="product-count" class="product-count"></span>
+      </div>
+      <div class="products-grid" id="all-products-grid"></div>
+    </div>
+  </div>
+
+  <!-- Product Quick View Modal -->
+  <div id="product-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-box product-modal-box">
+      <button class="modal-close" onclick="closeProductModal()">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-brand"><span class="logo-icon">⚡</span>ShopZone</div>
+    <p>© 2026 ShopZone. Developed by Shivalaya Software Solutions</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
